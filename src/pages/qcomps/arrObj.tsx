@@ -17,9 +17,11 @@ export default function BucketList() {
   function handleToggleMyList(artworkId: number, nextSeen: boolean) {
     const tmpList = myList.map(e => {
         if (e.id === artworkId) {
-            e.seen = nextSeen
+          return { ...e, seen: nextSeen }
         }
-        return e
+        else {
+            return e
+        }
     });
     setMyList(tmpList);
   }
@@ -27,9 +29,10 @@ export default function BucketList() {
   function handleToggleYourList(artworkId: number, nextSeen: boolean) {
     const tmpList = yourList.map(e => {
         if (e.id === artworkId) {
-            e.seen = nextSeen
-        }
+          return { ...e, seen: nextSeen }
+        } else {
         return e
+        }
     });
     setYourList(tmpList);
   }
